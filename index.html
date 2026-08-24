@@ -81,7 +81,7 @@
             font-size: 13px;
         }
 
-        /* HERO SECTION (Dos columnas: Presentación + Imagen Perfil) */
+        /* HERO SECTION */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -157,6 +157,7 @@
             box-shadow: 4px 4px 0px #000;
             background: #fff;
             transition: all 0.1s;
+            text-align: center;
         }
 
         .btn-brutal:hover {
@@ -166,6 +167,11 @@
 
         .btn-lime {
             background: #a3e635;
+        }
+
+        .btn-pink {
+            background: #ff70a6;
+            color: #fff;
         }
 
         .hero-right {
@@ -252,7 +258,7 @@
             color: #fff;
         }
 
-        /* SECCIÓN PRINCIPAL: 2 COLUMNAS (CONTENIDO + BARRA LATERAL) */
+        /* SECCIÓN PRINCIPAL: 2 COLUMNAS */
         .main-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -307,7 +313,7 @@
             padding: 15px;
         }
 
-        /* REPRODUCTOR Y VIDEO */
+        /* REPRODUCTORES Y VIDEOS */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -357,7 +363,7 @@
             text-align: justify;
         }
 
-        /* BARRA LATERAL DE REPRODUCTORES / EXTRA */
+        /* BARRA LATERAL (SIDEBAR) */
         .side-card {
             background: #fff;
             border: 3px solid #000;
@@ -370,6 +376,48 @@
             font-weight: 900;
             margin-bottom: 10px;
             text-transform: uppercase;
+        }
+
+        /* ESTILO RESEÑA / FEED DE INSTAGRAM */
+        .insta-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #000;
+        }
+
+        .insta-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            object-fit: cover;
+        }
+
+        .insta-handle {
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .insta-tag {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .insta-grid-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .insta-grid-mini img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border: 2px solid #000;
         }
 
         .callout-purple {
@@ -446,7 +494,7 @@
         <header>
             <div class="brand">&lt;/&gt; BIG C AUDIOVISUAL</div>
             <nav>
-                <a href="#video">VIDEO</a>
+                <a href="#video">VIDEOS</a>
                 <a href="#music">MUSIC</a>
                 <a href="#bio">ABOUT</a>
                 <a href="#links">LINKS</a>
@@ -454,7 +502,7 @@
             <a href="https://linktr.ee/bigcaudiovisual" target="_blank" class="cta-header">CONTACTO ↗</a>
         </header>
 
-        <!-- PORTADA Y PRESENTACIÓN (ESTILO HERO DE LA IMAGEN) -->
+        <!-- PORTADA Y PRESENTACIÓN -->
         <section class="hero-section">
             <div class="hero-left">
                 <span class="badge">HEY, BIENVENIDOS 👋</span>
@@ -480,7 +528,7 @@
             </div>
         </section>
 
-        <!-- BARRA DE ENLACES RÁPIDOS (SKILLS DE LA IMAGEN) -->
+        <!-- BARRA DE ENLACES RÁPIDOS -->
         <section class="links-bar" id="links">
             <div class="links-bar-title">ENLACES →</div>
             <div class="links-grid">
@@ -497,14 +545,27 @@
             <!-- COLUMNA IZQUIERDA -->
             <main class="left-col">
                 
-                <!-- VIDEO DESTACADO -->
+                <!-- PRIMER VIDEO DESTACADO -->
                 <section id="video" style="margin-bottom: 35px;">
                     <div class="section-header">
-                        <h2>VIDEO DESTACADO</h2>
+                        <h2>VIDEO DESTACADO #1</h2>
                     </div>
                     <div class="card-box" style="background: #ff70a6;">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/PV8DGhBy4cU" title="Long Sadhu - Proceso (Video Oficial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEGUNDO BLOQUE CON OTRO VIDEO DESTACADO -->
+                <section style="margin-bottom: 35px;">
+                    <div class="section-header">
+                        <h2>VIDEO DESTACADO #2</h2>
+                    </div>
+                    <div class="card-box" style="background: #6366f1;">
+                        <div class="video-wrapper">
+                            <!-- Reemplaza la URL src por el segundo video de YouTube deseado -->
+                            <iframe src="https://www.youtube.com/embed/PV8DGhBy4cU" title="Long Sadhu - Video Destacado 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
                 </section>
@@ -541,7 +602,27 @@
                     <iframe class="soundcloud-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/saadhu1991/sets/bodhisattva&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
                 </div>
 
-                <!-- FOTO EXTRA / BIO IMG -->
+                <!-- BLOQUE DE INSTAGRAM (FEED & FOLLOW) -->
+                <div class="side-card">
+                    <h3>INSTAGRAM FEED</h3>
+                    <div class="insta-profile-header">
+                        <img src="perfil.jpg.jpg" alt="Perfil Long Sadhu" class="insta-avatar">
+                        <div>
+                            <div class="insta-handle">@longsadhu</div>
+                            <div class="insta-tag">Big C Audiovisual</div>
+                        </div>
+                    </div>
+                    <!-- Muestra de fotos recientes -->
+                    <div class="insta-grid-mini">
+                        <img src="bio.jpg" alt="Foto Instagram 1">
+                        <img src="perfil.jpg.jpg" alt="Foto Instagram 2">
+                        <img src="portada.png.png" alt="Foto Instagram 3">
+                        <img src="bio.jpg" alt="Foto Instagram 4">
+                    </div>
+                    <a href="https://www.instagram.com/longsadhu/" target="_blank" class="btn-brutal btn-pink" style="display: block; width: 100%;">+ FOLLOW EN INSTAGRAM ↗</a>
+                </div>
+
+                <!-- GALERÍA DE ARCHIVO -->
                 <div class="side-card" style="text-align: center;">
                     <h3>GALERÍA / ARCHIVO</h3>
                     <img src="bio.jpg" alt="Long Sadhu Bio Extra" style="width: 100%; border: 2px solid #000; box-shadow: 3px 3px 0px #000;">
