@@ -141,7 +141,13 @@
             box-shadow: 5px 5px 0px #000;
         }
 
-        /* Sección de Biografía ampliada */
+        /* Reproductor SoundCloud */
+        .soundcloud-player {
+            width: 100%;
+            border: 2px solid #000;
+        }
+
+        /* Sección de Biografía */
         .bio-container {
             display: flex;
             gap: 20px;
@@ -228,6 +234,19 @@
                         LINKTREE <span>↗</span>
                     </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- VENTANA: REPRODUCTOR SOUNDCLOUD -->
+        <div class="window">
+            <div class="window-header">
+                <span>MUSIC_PLAYER.wav</span>
+                <div class="window-dots">
+                    <span></span><span></span>
+                </div>
+            </div>
+            <div class="window-body">
+                <iframe class="soundcloud-player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
             </div>
         </div>
 
