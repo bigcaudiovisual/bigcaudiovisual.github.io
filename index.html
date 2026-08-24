@@ -176,6 +176,23 @@
             text-align: justify;
         }
 
+        /* Contenedor Adaptable de Video YouTube (16:9) */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         footer {
             text-align: center;
             margin-top: 15px;
@@ -270,6 +287,21 @@
                         
                         <p>Lejos de perseguir tendencias, Long Sadhu entiende el arte como un registro de transformación personal. Sus canciones hablan de procesos, silencios, resiliencia y evolución interior, mientras que sus imágenes conservan el espíritu independiente de alguien que aprendió a hacerlo todo por sí mismo, su obra propone otra idea de éxito: construir un universo propio, pieza por pieza, DIY.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VENTANA: VIDEO DESTACADO DE YOUTUBE -->
+        <div class="window">
+            <div class="window-header">
+                <span>FEATURED_VIDEO.mp4</span>
+                <div class="window-dots">
+                    <span></span><span></span>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/PV8DGhBy4cU" title="Long Sadhu - Proceso (Video Oficial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
