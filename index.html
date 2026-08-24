@@ -1,114 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Big C Audiovisual</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG C AUDIOVISUAL</title>
+    <style>
+        /* Estilos globales y estética Retro Mac / Brutalist */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+        }
 
-<style>
-body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        body {
+            background-color: #e5e5e5;
+            /* Patrón de fondo estilo dither/puntos retro */
+            background-image: radial-gradient(#a3a3a3 1px, transparent 1px);
+            background-size: 8px 8px;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 8px 8px 0px #000;
+            padding: 20px;
+        }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-    opacity: 0.9;
-}
+        /* Ventana con barra de título retro */
+        .window {
+            border: 2px solid #000;
+            background: #fff;
+            margin-bottom: 25px;
+            box-shadow: 4px 4px 0px #000;
+        }
 
-h1 {
-    font-size: 70px;
-    letter-spacing: 12px;
-    margin: 0;
-    transition: 0.3s;
-}
+        .window-header {
+            background: #000;
+            color: #fff;
+            padding: 6px 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
 
-h1:hover {
-    letter-spacing: 18px;
-}
+        .window-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
 
-.subtitle {
-    margin-top: 10px;
-    font-size: 16px;
-    opacity: 0.6;
-}
+        .window-body {
+            padding: 20px;
+        }
 
-.player {
-    margin-top: 40px;
-}
+        /* Sección Portada y Perfil */
+        .cover-container {
+            width: 100%;
+            height: 200px;
+            border: 2px solid #000;
+            overflow: hidden;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
 
-.links {
-    margin-top: 30px;
-}
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(120%); /* Efecto Blanco y Negro */
+        }
 
-.links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 14px;
-    opacity: 0.5;
-    transition: 0.3s;
-}
+        .profile-hero {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.links a:hover {
-    opacity: 1;
-}
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(120%);
+        }
 
-.footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 12px;
-    opacity: 0.3;
-}
-</style>
+        .profile-info h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .profile-info p {
+            font-size: 14px;
+            font-weight: bold;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 2px 6px;
+        }
+
+        /* Enlaces rápidos estilo botones */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .btn-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border: 2px solid #000;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 3px 3px 0px #000;
+            transition: all 0.1s ease;
+        }
+
+        .btn-link:hover {
+            background: #000;
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        
+        <!-- VENTANA PRINCIPAL: PORTADA Y PRESENTACIÓN -->
+        <div class="window">
+            <div class="window-header">
+                <span>BIG_C_AUDIOVISUAL.exe</span>
+                <div class="window-dots">
+                    <span></span><span></span>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- Imagen de Portada -->
+                <div class="cover-container">
+                    <img src="https://via.placeholder.com/800x300/000000/FFFFFF?text=BIG+C+AUDIOVISUAL" alt="Portada" class="cover-img">
+                </div>
 
-    <!-- LOGO -->
-    <img src="logo.png" class="logo">
+                <!-- Imagen de Perfil + Texto -->
+                <div class="profile-hero">
+                    <img src="https://via.placeholder.com/150/000000/FFFFFF?text=PROFILE" alt="Perfil" class="profile-img">
+                    <div class="profile-info">
+                        <h1>Bienvenidos a<br>BIG C AUDIOVISUAL</h1>
+                        <p>DIGITAL CREATOR & VISUAL STORYTELLER</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- TITULO -->
-    <h1>BIG C</h1>
-    <div class="subtitle">Audiovisual</div>
+        <!-- VENTANA DE ENLACES / ACCESOS RÁPIDOS -->
+        <div class="window">
+            <div class="window-header">
+                <span>QUICK_LINKS.sys</span>
+                <div class="window-dots">
+                    <span></span><span></span>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="links-grid">
+                    <!-- Reemplaza los '#' por tus enlaces reales -->
+                    <a href="https://instagram.com" target="_blank" class="btn-link">
+                        INSTAGRAM <span>↗</span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="btn-link">
+                        YOUTUBE <span>↗</span>
+                    </a>
+                    <a href="https://spotify.com" target="_blank" class="btn-link">
+                        SPOTIFY <span>↗</span>
+                    </a>
+                    <a href="https://linktr.ee" target="_blank" class="btn-link">
+                        LINKTREE <span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-    <!-- SPOTIFY -->
-    <div class="player">
-        <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/artist/XXXXXXXX"
-        width="300"
-        height="380"
-        frameBorder="0"
-        allowfullscreen=""
-        loading="lazy"></iframe>
+        <footer>
+            © BIG C AUDIOVISUAL — ALL RIGHTS RESERVED
+        </footer>
+
     </div>
-
-    <!-- LINKS -->
-    <div class="links">
-        <a href="#">Spotify</a>
-        <a href="#">YouTube</a>
-        <a href="#">Instagram</a>
-    </div>
-
-</div>
-
-<div class="footer">
-    © Big C Audiovisual
-</div>
 
 </body>
 </html>
