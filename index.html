@@ -1,58 +1,745 @@
-<!-- NUEVA SECCIÓN: APP DEVELOPER -->
-<section id="app-developer" style="margin-bottom: 35px;">
-    <div class="section-header">
-        <h2>APP DEVELOPER</h2>
-    </div>
-    <div class="card-box" style="background: #a3e635;">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG C AUDIOVISUAL</title>
+    <style>
+        /* RESET & GLOBALES (Estética Neo-Brutalist) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-wrapper {
+            max-width: 950px;
+            width: 100%;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 10px 10px 0px #000;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        /* NAVBAR / HEADER TOP */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #000;
+            background: #fff;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            background: #a3e635; /* Verde lima */
+            padding: 12px 20px;
+            font-weight: 900;
+            font-size: 16px;
+            border-right: 3px solid #000;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-header {
+            background: #6366f1; /* Púrpura */
+            color: #fff;
+            padding: 12px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-left: 3px solid #000;
+            font-size: 13px;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 3px solid #000;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-left {
+            padding: 30px;
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 15px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 3px solid #000;
+        }
+
+        @media (max-width: 768px) {
+            .hero-left {
+                border-right: none;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+        .badge {
+            background: #818cf8;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: inline-block;
+            width: fit-content;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px #000;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-brutal {
+            display: inline-block;
+            padding: 10px 16px;
+            border: 2px solid #000;
+            font-weight: bold;
+            font-size: 12px;
+            text-decoration: none;
+            color: #000;
+            box-shadow: 4px 4px 0px #000;
+            background: #fff;
+            transition: all 0.1s;
+            text-align: center;
+        }
+
+        .btn-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        .btn-lime {
+            background: #a3e635;
+        }
+
+        .btn-pink {
+            background: #ff70a6;
+            color: #fff;
+        }
+
+        .hero-right {
+            background: #ff70a6; /* Rosa Pop */
+            padding: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cover-box {
+            position: relative;
+            width: 85%;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            background: #a3e635;
+            padding: 6px;
+        }
+
+        .cover-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border: 2px solid #000;
+        }
+
+        .profile-overlay {
+            position: relative;
+            margin-top: -40px;
+            margin-left: 40%;
+            background: #6366f1;
+            color: #fff;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            padding: 12px;
+            font-size: 11px;
+            max-width: 220px;
+        }
+
+        /* BANNER DE ACCESOS RÁPIDOS */
+        .links-bar {
+            display: flex;
+            border-bottom: 3px solid #000;
+            background: #fff;
+            flex-wrap: wrap;
+        }
+
+        .links-bar-title {
+            background: #6366f1;
+            color: #fff;
+            font-weight: bold;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            border-right: 3px solid #000;
+            font-size: 14px;
+        }
+
+        .links-grid {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .links-grid a {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px;
+            text-align: center;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .links-grid a:hover {
+            background: #ff70a6;
+            color: #fff;
+        }
+
+        /* SECCIÓN PRINCIPAL: 2 COLUMNAS */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            border-bottom: 3px solid #000;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .left-col {
+            border-right: 3px solid #000;
+            padding: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .left-col {
+                border-right: none;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+        .right-col {
+            background: #a3e635; /* Verde Lima */
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* TARJETAS DE CONTENIDO (BRUTALIST) */
+        .card-box {
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            background: #fff;
+            margin-bottom: 25px;
+            padding: 15px;
+        }
+
+        /* REPRODUCTORES Y VIDEOS */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* IMAGEN GRANDE DESTACADA */
+        .full-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .full-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .soundcloud-player {
+            width: 100%;
+            border: 2px solid #000;
+        }
+
+        /* BIOGRAFÍA */
+        .bio-flex {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .bio-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            flex-shrink: 0;
+        }
+
+        .bio-text {
+            flex: 1;
+            font-size: 12px;
+            line-height: 1.6;
+            min-width: 200px;
+        }
+
+        .bio-text p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* BARRA LATERAL (SIDEBAR) */
+        .side-card {
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 5px 5px 0px #000;
+            padding: 15px;
+        }
+
+        .side-card h3 {
+            font-size: 14px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* ESTILO RESEÑA / FEED DE INSTAGRAM */
+        .insta-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #000;
+        }
+
+        .insta-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            object-fit: cover;
+        }
+
+        .insta-handle {
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .insta-tag {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .insta-grid-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .insta-grid-mini img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border: 2px solid #000;
+        }
+
+        .callout-purple {
+            background: #6366f1;
+            color: #fff;
+            padding: 20px;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            text-align: center;
+        }
+
+        .callout-purple h3 {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        /* FOOTER */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #fff;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-brand {
+            background: #a3e635;
+            padding: 5px 10px;
+            font-weight: 900;
+            font-size: 12px;
+            border: 2px solid #000;
+        }
+
+        .copyright {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon-btn {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 11px;
+            background: #fff;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .social-icon-btn:hover {
+            background: #ff70a6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
         
-        <!-- ENCABEZADO DE LA APP -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-            <div>
-                <h3 style="font-size: 22px; font-weight: 900; text-transform: uppercase;">Android App: "Life"</h3>
-                <p style="font-size: 12px; font-weight: bold; margin-top: 4px;">Desarrollo de aplicación móvil independiente.</p>
+        <!-- BARRA SUPERIOR / NAVBAR -->
+        <header>
+            <div class="brand">&lt;/&gt; BIG C AUDIOVISUAL</div>
+            <nav>
+                <a href="#video">VIDEOS</a>
+                <a href="#bio">ABOUT</a>
+                <a href="#app-developer">APP</a>
+                <a href="#music">MUSIC</a>
+                <a href="#links">LINKS</a>
+            </nav>
+            <a href="https://linktr.ee/bigcaudiovisual" target="_blank" class="cta-header">CONTACTO ↗</a>
+        </header>
+
+        <!-- PORTADA Y PRESENTACIÓN -->
+        <section class="hero-section">
+            <div class="hero-left">
+                <span class="badge">HEY, BIENVENIDOS 👋</span>
+                <h1 class="hero-title">BIG C AUDIOVISUAL</h1>
+                <p class="hero-desc">DIGITAL CREATOR & VISUAL STORYTELLER. Producción independiente, música, estética urbana y contenido audiovisual autodidacta.</p>
+                <div class="hero-buttons">
+                    <a href="#video" class="btn-brutal btn-lime">VER TRABAJOS ↗</a>
+                    <a href="#bio" class="btn-brutal">LEER BIO ↓</a>
+                </div>
             </div>
-            <a href="https://www.instagram.com/life.app.oficial/" target="_blank" class="btn-brutal btn-pink">INSTAGRAM LIFE.APP ↗</a>
+            
+            <div class="hero-right">
+                <div class="cover-box">
+                    <img src="portada.png.png" alt="Portada Big C Audiovisual">
+                </div>
+                <div class="profile-overlay">
+                    <p><strong>> artist = {</strong></p>
+                    <p style="padding-left: 10px;">name: 'Long Sadhu',</p>
+                    <p style="padding-left: 10px;">style: 'Rap / Trap / DIY',</p>
+                    <p style="padding-left: 10px;">label: 'Big C Audiovisual'</p>
+                    <p><strong>}</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BARRA DE ENLACES RÁPIDOS -->
+        <section class="links-bar" id="links">
+            <div class="links-bar-title">ENLACES →</div>
+            <div class="links-grid">
+                <a href="https://www.instagram.com/longsadhu/" target="_blank">INSTAGRAM ↗</a>
+                <a href="https://www.youtube.com/@longsadhu" target="_blank">YOUTUBE ↗</a>
+                <a href="https://open.spotify.com/intl-es/artist/7kwdA4ho56TetVhNwI5poQ" target="_blank">SPOTIFY ↗</a>
+                <a href="https://linktr.ee/bigcaudiovisual" target="_blank">LINKTREE ↗</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PRINCIPAL DE CONTENIDOS (GRID 2 COLUMNAS) -->
+        <div class="main-content">
+            
+            <!-- COLUMNA IZQUIERDA -->
+            <main class="left-col">
+                
+                <!-- PRIMER VIDEO DESTACADO -->
+                <section id="video" style="margin-bottom: 35px;">
+                    <div class="section-header">
+                        <h2>VIDEO DESTACADO #1</h2>
+                    </div>
+                    <div class="card-box" style="background: #ff70a6;">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/PV8DGhBy4cU" title="Long Sadhu - Proceso (Video Oficial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BIOGRAFÍA DE LONG SADHU -->
+                <section id="bio" style="margin-bottom: 35px;">
+                    <div class="section-header">
+                        <h2>SOBRE LONG SADHU</h2>
+                    </div>
+                    <div class="card-box">
+                        <div class="bio-flex">
+                            <img src="perfil.jpg.jpg" alt="Perfil Long Sadhu" class="bio-img">
+                            <div class="bio-text">
+                                <p><strong>Long Sadhu...</strong> Antes de publicar canciones ya documentaba escenas de skate con una cámara, subía videos a YouTube desde 2008 y absorbía la cultura hip hop grabando cassettes de la radio durante su infancia. Esa mezcla de imagen, sonido y calle terminó convirtiéndose en una identidad artística difícil de separar.</p>
+                                <p>Activo musicalmente desde 2014, Long Sadhu construyó un camino completamente autodidacta. Produce sus propios beats, graba sus voces, mezcla, masteriza y dirige sus videoclips, entendiendo cada lanzamiento como una obra audiovisual completa.</p>
+                            </div>
+                        </div>
+                        <div class="bio-text" style="margin-top: 15px;">
+                            <p>Su universo combina el rap, el trap y una búsqueda emocional donde conviven la introspección, la filosofía y una mirada espiritual influenciada por el budismo, origen del nombre con el que decidió firmar su obra.</p>
+                            <p>Con más de un centenar de lanzamientos y cientos de producciones audiovisuales publicadas, desarrolló un catálogo que prioriza la constancia antes que la inmediatez. Paralelamente impulsó Big C Audiovisual, proyecto nacido en 2008 que terminó convirtiéndose en el laboratorio creativo desde donde dio forma a buena parte de su estética visual.</p>
+                            <p>Lejos de perseguir tendencias, Long Sadhu entiende el arte como un registro de transformación personal. Sus canciones hablan de procesos, silencios, resiliencia y evolución interior, mientras que sus imágenes conservan el espíritu independiente de alguien que aprendió a hacerlo todo por sí mismo, su obra propone otra idea de éxito: construir un universo propio, pieza por pieza, DIY.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- IMAGEN GRANDE DESTACADA -->
+                <section style="margin-bottom: 35px;">
+                    <div class="section-header">
+                        <h2>GALERÍA / DESTACADO</h2>
+                    </div>
+                    <div class="card-box" style="background: #a3e635;">
+                        <div class="full-img-wrapper">
+                            <img src="imagen-destacada.jpg" alt="Imagen Destacada Big C Audiovisual">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEGUNDO VIDEO (NUEVE & LONG) -->
+                <section style="margin-bottom: 35px;">
+                    <div class="section-header">
+                        <h2>Nueve & Long _ SG __ 傷心的女孩</h2>
+                    </div>
+                    <div class="card-box" style="background: #6366f1;">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/xzFQUXSNrMM" title="Nueve & Long _ SG __ 傷心的女孩 - [VideoClip]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NUEVA SECCIÓN: APP DEVELOPER -->
+                <section id="app-developer">
+                    <div class="section-header">
+                        <h2>APP DEVELOPER</h2>
+                    </div>
+                    <div class="card-box" style="background: #a3e635;">
+                        
+                        <!-- ENCABEZADO DE LA APP -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="font-size: 22px; font-weight: 900; text-transform: uppercase;">Android App: "Life"</h3>
+                                <p style="font-size: 12px; font-weight: bold; margin-top: 4px;">Desarrollo de aplicación móvil independiente.</p>
+                            </div>
+                            <a href="https://www.instagram.com/life.app.oficial/" target="_blank" class="btn-brutal btn-pink">INSTAGRAM LIFE.APP ↗</a>
+                        </div>
+
+                        <!-- GRILLA 1: 6 FOTOS (FORMATO 1x1 CUADRADAS - AVATARES) -->
+                        <h4 style="font-size: 13px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; display: inline-block;">AVATARES (1x1)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 10px; margin-bottom: 25px;">
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar1.jpg" alt="Avatar 1" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar2.jpg" alt="Avatar 2" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar3.jpg" alt="Avatar 3" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar4.jpg" alt="Avatar 4" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar5.jpg" alt="Avatar 5" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="avatar6.jpg" alt="Avatar 6" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+
+                        <!-- GRILLA 2: 4 FOTOS (FORMATO 9x16 VERTICALES - APP MOCKUPS) -->
+                        <h4 style="font-size: 13px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; display: inline-block;">APP SCREENSHOTS (9x16)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="app1.jpg" alt="App 1" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="app2.jpg" alt="App 2" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="app3.jpg" alt="App 3" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <img src="app4.jpg" alt="App 4" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- COLUMNA DERECHA (BARRA LATERAL) -->
+            <aside class="right-col">
+                
+                <!-- REPRODUCTOR DE MÚSICA -->
+                <div class="side-card" id="music">
+                    <h3>MUSIC PLAYER</h3>
+                    <iframe class="soundcloud-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/saadhu1991/sets/bodhisattva&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+                </div>
+
+                <!-- BLOQUE DE INSTAGRAM (FEED & FOLLOW) -->
+                <div class="side-card">
+                    <h3>INSTAGRAM FEED</h3>
+                    <div class="insta-profile-header">
+                        <img src="perfil.jpg.jpg" alt="Perfil Long Sadhu" class="insta-avatar">
+                        <div>
+                            <div class="insta-handle">@longsadhu</div>
+                            <div class="insta-tag">Big C Audiovisual</div>
+                        </div>
+                    </div>
+                    <!-- Muestra de fotos recientes -->
+                    <div class="insta-grid-mini">
+                        <img src="bio.jpg" alt="Foto Instagram 1">
+                        <img src="perfil.jpg.jpg" alt="Foto Instagram 2">
+                        <img src="portada.png.png" alt="Foto Instagram 3">
+                        <img src="bio.jpg" alt="Foto Instagram 4">
+                    </div>
+                    <a href="https://www.instagram.com/longsadhu/" target="_blank" class="btn-brutal btn-pink" style="display: block; width: 100%;">+ FOLLOW EN INSTAGRAM ↗</a>
+                </div>
+
+                <!-- GALERÍA DE ARCHIVO -->
+                <div class="side-card" style="text-align: center;">
+                    <h3>GALERÍA / ARCHIVO</h3>
+                    <img src="bio.jpg" alt="Long Sadhu Bio Extra" style="width: 100%; border: 2px solid #000; box-shadow: 3px 3px 0px #000;">
+                </div>
+
+                <!-- BLOQUE PÚRPURA DE CONTACTO -->
+                <div class="callout-purple">
+                    <h3>¿CREAMOS ALGO JUNTOS?</h3>
+                    <a href="https://linktr.ee/bigcaudiovisual" target="_blank" class="btn-brutal" style="background: #fff; display: block;">CONTACTAR →</a>
+                </div>
+
+            </aside>
         </div>
 
-        <!-- GRILLA 1: 6 FOTOS (FORMATO 1x1 CUADRADAS - AVATARES) -->
-        <h4 style="font-size: 13px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; display: inline-block;">AVATARES (1x1)</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-bottom: 25px;">
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar1.jpg" alt="Avatar 1" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-brand">&lt;/&gt; BIG C AUDIOVISUAL</div>
+            <div class="copyright">© 2026 BIG C AUDIOVISUAL. All rights reserved.</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/longsadhu/" target="_blank" class="social-icon-btn" title="Instagram">IG</a>
+                <a href="https://www.youtube.com/@longsadhu" target="_blank" class="social-icon-btn" title="YouTube">YT</a>
+                <a href="https://open.spotify.com/intl-es/artist/7kwdA4ho56TetVhNwI5poQ" target="_blank" class="social-icon-btn" title="Spotify">SP</a>
             </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar2.jpg" alt="Avatar 2" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar3.jpg" alt="Avatar 3" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar4.jpg" alt="Avatar 4" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar5.jpg" alt="Avatar 5" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="avatar6.jpg" alt="Avatar 6" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-        </div>
-
-        <!-- GRILLA 2: 4 FOTOS (FORMATO 9x16 VERTICALES - APP MOCKUPS) -->
-        <h4 style="font-size: 13px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: #000; color: #fff; padding: 4px 8px; display: inline-block;">APP SCREENSHOTS (9x16)</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="app1.jpg" alt="App 1" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="app2.jpg" alt="App 2" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="app3.jpg" alt="App 3" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="border: 2px solid #000; box-shadow: 3px 3px 0px #000; background: #fff; aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="app4.jpg" alt="App 4" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-        </div>
+        </footer>
 
     </div>
-</section>
+
+</body>
+</html>
