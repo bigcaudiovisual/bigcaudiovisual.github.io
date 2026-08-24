@@ -15,7 +15,6 @@
 
         body {
             background-color: #e5e5e5;
-            /* Patrón de fondo estilo dither/puntos retro */
             background-image: radial-gradient(#a3a3a3 1px, transparent 1px);
             background-size: 8px 8px;
             color: #000;
@@ -142,6 +141,34 @@
             box-shadow: 5px 5px 0px #000;
         }
 
+        /* Nueva sección de Biografía */
+        .bio-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .bio-img {
+            width: 220px;
+            height: 220px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .bio-text {
+            flex: 1;
+            min-width: 250px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .bio-text p {
+            margin-bottom: 12px;
+        }
+
         footer {
             text-align: center;
             margin-top: 15px;
@@ -163,12 +190,10 @@
                 </div>
             </div>
             <div class="window-body">
-                <!-- Imagen de Portada -->
                 <div class="cover-container">
                     <img src="portada.png.png" alt="Portada" class="cover-img">
                 </div>
 
-                <!-- Imagen de Perfil + Texto -->
                 <div class="profile-hero">
                     <img src="perfil.jpg.jpg" alt="Perfil" class="profile-img">
                     <div class="profile-info">
@@ -201,6 +226,27 @@
                     <a href="https://linktr.ee/bigcaudiovisual" target="_blank" class="btn-link">
                         LINKTREE <span>↗</span>
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- NUEVA VENTANA: BIOGRAFÍA Y FOTO EXTRA -->
+        <div class="window">
+            <div class="window-header">
+                <span>ABOUT_ME.txt</span>
+                <div class="window-dots">
+                    <span></span><span></span>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="bio-container">
+                    <!-- Reemplaza "bio.jpg" por el nombre exacto de la foto que subas a GitHub -->
+                    <img src="bio.jpg" alt="Bio Image" class="bio-img">
+                    <div class="bio-text">
+                        <p><strong>> PROYECTO & VISIÓN:</strong></p>
+                        <p>Productor audiovisual y creador digital enfocado en el desarrollo de conceptos visuales y sonoros con identidad propia. Exploración constante de estéticas brutas, analógicas y experimentación digital.</p>
+                        <p>Especializado en dirección creativa, producción musical y diseño visual.</p>
+                    </div>
                 </div>
             </div>
         </div>
